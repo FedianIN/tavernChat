@@ -2,6 +2,15 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require 'navigation_helper.rb'
+
+module ApplicationHelper
+  include NavigationHelper
+end
+
+# to avoid loading all helpers to all views
+config.action_controller.include_all_helpers = false
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
